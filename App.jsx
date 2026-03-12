@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from 'firebase/auth';
-import { getFirestore, collection, addDoc, onSnapshot, doc, deleteDoc, serverTimestamp } from 'firebase/firestore';
+import { getFirestore, addDoc, doc, deleteDoc, serverTimestamp } from 'firebase/firestore';
+import { collection as fsCollection, onSnapshot as fsOnSnapshot } from 'firebase/firestore';
 import { FileUp, Download, ShieldCheck, Trash2, Bell, Lock, RefreshCw, Link2, Plus, ChevronDown, ChevronUp, Info } from 'lucide-react';
 
 // --- CONFIGURATION ---
@@ -291,4 +292,5 @@ export default function App() {
       `}</style>
     </div>
   );
+
 }
