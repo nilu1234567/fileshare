@@ -105,13 +105,13 @@ export default function App() {
             content: reader.result, 
             size: (file.size / (1024 * 1024)).toFixed(2) + ' MB' 
           };
-          await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'vault_data'), dataToSave);
+          await addDoc(fsCollection(db, 'artifacts', appId, 'public', 'data', 'vault_data'), dataToSave);
           resetForm();
         };
       } else {
         if (!textLink.trim()) throw new Error("Link likhein");
         dataToSave = { ...dataToSave, name: "Shared Link", content: textLink, size: 'Text' };
-        await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'vault_data'), dataToSave);
+       await addDoc(fsCollection(db, 'artifacts', appId, 'public', 'data', 'vault_data'), dataToSave);
         resetForm();
       }
     } catch (error) { 
@@ -294,3 +294,4 @@ export default function App() {
   );
 
 }
+
